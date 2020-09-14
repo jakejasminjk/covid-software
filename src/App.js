@@ -1,27 +1,30 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import Main from './components/Main';
+import Navbar from './components/Navbar';
+import axios from 'axios'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    };
+  }
+  componentDidMount() {
+    //cat api key
+    const api_key='986d4897-ad5c-4dd4-8b96-2895168dd46f'
+    axios.get('https://covidtracking.com/api/v1/us/daily.json')
+   .then(res => this.setState({ data: res.data}))
+ }
+  render(){
+    console.log(this.state.data)
+    return (
+    <React.Fragment>
+      <Navbar />
+      <Main datas={this.state.data}/>
+    </React.Fragment>
+  );}
 }
-
 
 export default App;
