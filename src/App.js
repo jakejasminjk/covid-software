@@ -12,8 +12,6 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-    //cat api key
-    const api_key='986d4897-ad5c-4dd4-8b96-2895168dd46f'
     axios.get('https://cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/us/daily.json')
    .then(res => this.setState({ data: res.data}))
  }
