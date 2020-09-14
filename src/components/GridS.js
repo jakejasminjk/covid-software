@@ -25,7 +25,7 @@ export default function GridS(props) {
   return(
     <Grid item xs={3}>
         <Cards
-        date={props.covid.date}
+        date={Date.parse(props.covid.date)}
         positive={props.covid.positive}
         negative={props.covid.negative}
         pending={props.covid.pending}
