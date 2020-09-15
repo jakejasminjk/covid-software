@@ -2,10 +2,10 @@
   "name": "covid-software",
   "version": "0.1.0",
   "private": true,
+  "version": "1.0.0",
   "engines": {
     "node": "12.x"
-  }
-}
+},
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
