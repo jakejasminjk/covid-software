@@ -12,11 +12,6 @@
         "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
     },
     "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.3",
-        "babel-loader": "^8.0.6",
-        "babel-preset-env": "^1.7.0",
-        "morgan": "^1.9.1",
         "nodemon": "^1.17.5"
     },
     "author": "",
