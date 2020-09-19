@@ -26,8 +26,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.1.6",
-    "react-scripts": "^3.4.3",
+    "mongoose": "^5.1.6"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -35,7 +34,6 @@
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "morgan": "^1.9.1",
-    "nodemon": "^1.17.5",
-    "react-scripts": "^3.4.3",
+    "nodemon": "^1.17.5"
   }
 }
