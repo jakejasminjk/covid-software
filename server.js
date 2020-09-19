@@ -1,10 +1,8 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import path from 'path';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import morgan from 'morgan';
-import config from './config';
+const path =require('path');
+const morgan = require('morgan');
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
 //environment variable
 require('dotenv').config();
 
