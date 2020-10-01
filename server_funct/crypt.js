@@ -17,5 +17,7 @@ function comparePass(pwd) {
         }
 
     });
-
 }
+
+module.exports.hashPass = hashPass;
+module.exports.comparePass = comparePass;
