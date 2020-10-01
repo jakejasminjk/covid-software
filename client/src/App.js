@@ -26,7 +26,9 @@ class App extends React.Component {
  handleSignIn(stateIn){
     axios.post('users/add',{
         username:stateIn
-    })
+    }).then((response) => {
+    console.log(response);
+  })
     this.setState({name:stateIn})
   };
 
