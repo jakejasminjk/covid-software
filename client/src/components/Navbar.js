@@ -38,7 +38,7 @@ export default function Navbar(props) {
           </Typography>
           <Button color="inherit" href = '/SignUp'>SignUp</Button>
           <Button color="inherit" href = '/Login'>Login</Button>
-          <Button color="inherit" href = '#'>Home</Button>
+          <Button color="inherit" href = '/'>Home</Button>
           <Button color="inherit" href = '#'>Info</Button>
         </Toolbar>
       </AppBar>
