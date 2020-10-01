@@ -69,7 +69,7 @@ export default function SignIn(props) {
           <AddLocationRoundedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          SignUp
+          Login
         </Typography>
         <form className={classes.form} noValidate onSubmit={onSubmit}>
           <TextField

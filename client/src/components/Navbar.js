@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar(props) {
   const classes = useStyles();
 
   return (
@@ -33,8 +33,11 @@ export default function Navbar() {
           <Typography variant="h6" className={classes.title}>
             Covid Watch
           </Typography>
+          <Typography variant="h3" className={classes.title}>
+            {props.name}
+          </Typography>
           <Button color="inherit" href = '/SignUp'>SignUp</Button>
-          <Button color="inherit" href = '#'>Login</Button>
+          <Button color="inherit" href = '/Login'>Login</Button>
           <Button color="inherit" href = '#'>Home</Button>
           <Button color="inherit" href = '#'>Info</Button>
         </Toolbar>
