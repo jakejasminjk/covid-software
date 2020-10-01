@@ -31,8 +31,10 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Covid Data
+            Covid Watch
           </Typography>
+          <Button color="inherit" href = '/SignUp'>SignUp</Button>
+          <Button color="inherit" href = '#'>Login</Button>
           <Button color="inherit" href = '#'>Home</Button>
           <Button color="inherit" href = '#'>Info</Button>
         </Toolbar>
