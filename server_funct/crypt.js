@@ -1,9 +1,13 @@
 const bcrypt = require('bcrypt');
 
-function hashPass(pwd, user) {
+function hashPass(pwd) {
 
     bcrypt.hash(pwd, 10, (err, hash) => {
-        // Store in db here
+        if (err) {
+            throw err;
+        } else {
+            return hash;
+        }
     });
 }
 
@@ -11,11 +15,13 @@ function comparePass(pwd) {
 
     bcrypt.compare(pwd, hash, (err, res) => {
         if (res) {
-            // Password matched
+            return true;
         } else {
-            // Wrong password
+            return false;
         }
 
     });
-
 }
+
+module.exports.hashPass = hashPass;
+module.exports.comparePass = comparePass;
