@@ -1,6 +1,6 @@
 const router = require('express').Router();
 let User = require('../models/user.model');
-let crypt = require('../server_funct/crypt.js');
+const crypt = require('../server_funct/crypt.js');
 
 router.route('/').get((req, res) => {
   User.find()
