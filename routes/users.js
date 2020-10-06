@@ -11,8 +11,8 @@ router.route('/').get((req, res) => {
 //Create a user
 router.route('/add').post((req, res) => {
   const username = req.body.username;
-  const password = crypt.hashPass(req.body.password);
-  const newUser = new User({username, password});
+  const pass = crypt.hashPass(req.body.password);
+  const newUser = new User({username, pass});
 
   newUser.save()
     .then(() => res.json('User added!'))
