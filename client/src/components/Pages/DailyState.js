@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import GridS from './GridS';
+import GridState from '../allGrids/GridState';
 import Grid from '@material-ui/core/Grid';
 
 {/*<React.Fragment>
@@ -24,7 +24,7 @@ import Grid from '@material-ui/core/Grid';
     },
   }));
 
-export default function Main(props) {
+export default function DailyState(props) {
   console.log(`data is: ${(props.datas)}`)
   const classes = useStyles()
   return(
@@ -32,7 +32,7 @@ export default function Main(props) {
   <div className={classes.root}>
     <Grid container spacing={3}>
       {props.datas.map((data) => (
-      <GridS key={data.hash} covid = {data}/>
+      <GridState key={data.hash} covid = {data}/>
     ))}
     </Grid>
   </div>
