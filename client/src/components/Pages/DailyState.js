@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import GridState from '../allGrids/GridState';
 import Grid from '@material-ui/core/Grid';
+//ALL DAILY STATE VALUES
 
 {/*<React.Fragment>
   <CssBaseline />
