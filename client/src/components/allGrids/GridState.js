@@ -5,7 +5,8 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import CardsState from '../allCards/Cards';
+import CardsState from '../allCards/CardsState';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
