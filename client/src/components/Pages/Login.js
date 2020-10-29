@@ -48,11 +48,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 let stateIn = '';
 
-export default function SignIn(props) {
+export default function Login(props) {
   const classes = useStyles();
   function onSubmit(e){
     e.preventDefault();
-    props.handleSignIn(stateIn)
+    console.log(stateIn)
+    props.handleLogin(stateIn)
   }
 
   function onChange(e){

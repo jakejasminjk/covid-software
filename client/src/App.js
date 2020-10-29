@@ -23,27 +23,33 @@ class App extends React.Component {
   }
 
   handleSignIn(username){
-   axios.post('users/add',{
+   axios.post('http://localhost:5000/users/add',{
        username:username
+
    }).then((response) => {
    console.log(response);
  })
    this.setState({name:username})
  };
 
+ handleLogin(username){
+  axios.post('users/add',{
+      username:username
+  }).then((response) => {
+  console.log(response);
+})
+  this.setState({name:username})
+};
 
-//THIS NEEDS WORK
- handleLogin(stateIn){
-    axios.get('users/add',{
-        username:stateIn
-    })
-    this.setState({name:stateIn})
-  };
 
   componentDidMount() {
     axios.get('https://cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/us/daily.json')
    .then(res => this.setState({ data: res.data}))
-   axios.get('https://cors-anywhere.herokuapp.com/https://api.covidtracking.com/v1/states/daily.json')
+   axios.get('https://cors-anywhere.herokuapp.com/https://api.covidtracking.com/v1/states/daily.json', {
+       params: {
+           _limit: 20
+       }
+   })
   .then(res => this.setState({ dailyState: res.data}))
  }
   render(){
@@ -62,10 +68,10 @@ class App extends React.Component {
          <DailyState datas={this.state.dailyState}/>
         )}/>
     <Route exact path="/Login" render={props =>(
-        <Login/>
+        <Login handleLogin={this.handleLogin}/>
          )}/>
     <Route exact path="/Sign" render={props =>(
-        <Sign />
+        <Sign handleSignIn = {this.handleSignIn}/>
         )}/>
     </React.Fragment>
     </Router>
