@@ -20,6 +20,26 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/verify').post((req,res) => {
+  console.log(req.body.username, '<-- Username');
+  console.log(req.body.password, '<-- password');
+  const query = User.find({"username" : req.body.username}, function(err, arr) {
+    if(err) {
+      throw err;
+    }
+    console.log(arr);
+    if(arr === undefined || arr.length == 0) {
+      console.log("User not found")
+    } else {
+      const isUser = bcrypt.compareSync(req.body.password, arr[0].password);
+      if(isUser) {
+        console.log("Verified");
+      }
+    }
+  });
+});
+  
+
 router.route('/:id').get((req, res) => {
   User.findById(req.params.id)
     .then(user => res.json(user))

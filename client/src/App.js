@@ -34,8 +34,7 @@ class App extends React.Component {
  };
 
  handleLogin(username, password){
-  //this is not a post request change to correct request
-  axios.get('http://localhost:5000/users/add',{
+  axios.post('http://localhost:5000/users/verify',{
       username:username,
       password:password
   }).then((response) => {

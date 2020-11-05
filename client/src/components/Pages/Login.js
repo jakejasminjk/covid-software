@@ -46,21 +46,29 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-let stateIn = '';
-
+let stateName = '';
+let statePassword = '';
 export default function Login(props) {
   const classes = useStyles();
   function onSubmit(e){
     e.preventDefault();
-    console.log(stateIn)
-    props.handleLogin(stateIn)
+    // Check if not empty on submission
+    //could hash the password here
+    if(stateName != '' || statePassword != '' ){
+        props.handleLogin(stateName, statePassword);
+    }
   }
 
   function onChange(e){
-    stateIn = e.target.value
-    console.log(stateIn)
+    stateName = e.target.value
+    console.log(stateName)
   }
 
+  function onPchange(e){
+    //hash Password
+    statePassword = e.target.value
+    console.log(statePassword)
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -93,7 +101,7 @@ export default function Login(props) {
             label="Password"
             name="password"
             type="text"
-            onChange={onChange}
+            onChange={onPchange}
           />
 
           <Button
