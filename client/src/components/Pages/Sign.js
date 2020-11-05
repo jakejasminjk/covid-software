@@ -46,18 +46,28 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-let stateIn = '';
+let stateName = '';
+let statePassword = '';
 
 export default function SignIn(props) {
   const classes = useStyles();
   function onSubmit(e){
     e.preventDefault();
-    props.handleSignIn(stateIn)
+    if(stateName == '' || statePassword == '' ){
+        props.handleSignIn(stateName, statePassword);
+        console.log(stateName, statePassword)
+    }
   }
 
   function onChange(e){
-    stateIn = e.target.value
-    console.log(stateIn)
+    stateName = e.target.value
+    console.log(stateName)
+  }
+
+  function onPchange(e){
+    //hash Password
+    statePassword = e.target.value
+    console.log(statePassword)
   }
 
 
@@ -92,7 +102,7 @@ export default function SignIn(props) {
             label="Password"
             name="password"
             type="text"
-            onChange={onChange}
+            onChange={onPchange}
           />
 
           <Button
