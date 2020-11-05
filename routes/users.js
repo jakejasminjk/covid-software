@@ -21,13 +21,10 @@ router.route('/add').post((req, res) => {
 });
 
 router.route('/verify').post((req,res) => {
-  console.log(req.body.username, '<-- Username');
-  console.log(req.body.password, '<-- password');
   const query = User.find({"username" : req.body.username}, function(err, arr) {
     if(err) {
       throw err;
     }
-    console.log(arr);
     if(arr === undefined || arr.length == 0) {
       console.log("User not found")
     } else {
