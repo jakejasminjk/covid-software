@@ -33,7 +33,7 @@ class App extends React.Component {
    this.setState({name:username})
  };
 
- handleLogin(username, Password){
+ handleLogin(username, password){
   axios.post('users/add',{
       username:username,
       password:password
