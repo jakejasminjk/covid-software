@@ -23,10 +23,10 @@ class App extends React.Component {
   }
 
   handleSignIn(username, password){
-      //replace post with a get request of the username then verfiy password hash
+      //could also hash here
    axios.post('http://localhost:5000/users/add',{
-       username:username
-
+       username:username,
+       password:password
    }).then((response) => {
    console.log(response);
  })
@@ -34,7 +34,8 @@ class App extends React.Component {
  };
 
  handleLogin(username, password){
-  axios.post('users/add',{
+  //this is not a post request change to correct request
+  axios.post('http://localhost:5000/users/add',{
       username:username,
       password:password
   }).then((response) => {

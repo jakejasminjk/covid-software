@@ -53,9 +53,10 @@ export default function SignIn(props) {
   const classes = useStyles();
   function onSubmit(e){
     e.preventDefault();
-    if(stateName == '' || statePassword == '' ){
+    // Check if not empty on submission
+    //could hash the password here
+    if(stateName != '' || statePassword != '' ){
         props.handleSignIn(stateName, statePassword);
-        console.log(stateName, statePassword)
     }
   }
 
