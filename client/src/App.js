@@ -17,6 +17,7 @@ class App extends React.Component {
     this.state = {
       data: [],
       dailyState: [],
+      Metadata: [],
     };
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
@@ -53,6 +54,12 @@ class App extends React.Component {
        }
    })
   .then(res => this.setState({ dailyState: res.data}))
+  axios.get('https://cors-anywhere.herokuapp.com/https://api.covidtracking.com/v1/states/info.json', {
+    params: {
+      _limit: 20
+    }
+  })
+  .then(res => this.setState({Metadata: res.data}))
  }
   render(){
     console.log(this.state.data)
@@ -74,6 +81,9 @@ class App extends React.Component {
          )}/>
     <Route exact path="/Sign" render={props =>(
         <Sign handleSignIn = {this.handleSignIn}/>
+        )}/>
+    <Route exact path="/Metadata" render={props =>(
+        <Metadata datas={this.state.Metadata}/>
         )}/>
     </React.Fragment>
     </Router>
