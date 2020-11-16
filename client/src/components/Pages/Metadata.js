@@ -33,7 +33,7 @@ export default function Metadata(props) {
   <div className={classes.root}>
     <Grid container spacing={3}>
       {props.datas.map((data) => (
-      <GridState key={data.hash} covid = {data}/>
+      <Metadatagrid key={data.hash} covid = {data}/>
     ))}
     </Grid>
   </div>

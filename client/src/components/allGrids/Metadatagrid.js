@@ -25,7 +25,7 @@ export default function Metadata(props) {
   {/*<Paper className={classes.paper}>{props.covid.date}</Paper>*/}
   return(
     <Grid item xs={3}>
-        <CardsState
+        <Metadatacard
         state={props.covid.state}
         notes={props.covid.notes}
         covid19site={props.covid.covid19site}

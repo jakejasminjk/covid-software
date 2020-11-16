@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import Main from './components/Pages/Main';
 import DailyState from './components/Pages/DailyState';
+import Metadata from './components/Pages/Metadata';
 import Login from './components/Pages/Login';
 import Sign from './components/Pages/Sign';
 import Navbar from './components/Navbar';
