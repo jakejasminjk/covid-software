@@ -17,6 +17,27 @@ const userSchema = new Schema({
     trim: true,
     minlength: 5
   },
+  screening: [
+    {
+      name: {
+        type: String,
+        required: true,
+        trim: true
+      },
+      temp: {
+        type: Double,
+        required: true
+      },
+      hasSymptoms: {
+        type: Boolean,
+        required: true
+      },
+      hasCovid : {
+        type: Boolean,
+        required: true
+      }
+    }
+  ]
 }, {
   timestamps: true,
 });
