@@ -55,7 +55,7 @@ export default function Navbar() {
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/'>Home</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/info'>Info</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/dailyState'>DailyState</Button></MenuItem>
-                <MenuItem onClick={handleClose}><Button color="inherit" href = '/#'>Metadata</Button></MenuItem>
+                <MenuItem onClick={handleClose}><Button color="inherit" href = '/Metadata'>Metadata</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/Sign'>Sign Up</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/Login'>Login</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/#'>Logout</Button></MenuItem>

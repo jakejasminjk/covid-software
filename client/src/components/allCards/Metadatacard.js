@@ -26,6 +26,7 @@ const useStyles = makeStyles({
 state={props.covid.state}
 notes={props.covid.notes}
 covid19site={props.covid.covid19site}
+twitter={props.covid.twitter}
 />*/}
 export default function OutlinedCard(props) {
   const classes = useStyles();
@@ -36,19 +37,17 @@ export default function OutlinedCard(props) {
         <Typography className={classes.title} color="textSecondary" gutterBottom>
             State: {props.state}
          </Typography>
+         <Typography className={classes.title} color="textSecondary" gutterBottom>
+           twitter: {props.twitter}
+         </Typography>
+         <Typography className={classes.title} color="textSecondary" gutterBottom>
+           covid19Site: {props.covid19Site}
+         </Typography>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Date: {props.date}
+          Notes: {props.notes}
         </Typography>
-        <Typography variant="h5" component="h2">
-          Deaths: {props.death || '0'}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          Negative: {props.negative}
-        </Typography>
-        <Typography variant="body2" component="p">
-          Positive: {props.positive}
 
-        </Typography>
+
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>

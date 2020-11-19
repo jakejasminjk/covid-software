@@ -28,7 +28,8 @@ export default function Metadata(props) {
         <Metadatacard
         state={props.covid.state}
         notes={props.covid.notes}
-        covid19site={props.covid.covid19site}
+        covid19Site={props.covid.covid19Site}
+        twitter={props.covid.twitter}
       />
     </Grid>
     );
