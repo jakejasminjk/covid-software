@@ -26,7 +26,7 @@ export default function Deposits() {
         on 22 October, 2020
       </Typography>
       <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
+        <Link color="primary" href="/info" onClick={preventDefault}>
           View Daily
         </Link>
       </div>
