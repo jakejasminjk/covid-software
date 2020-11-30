@@ -44,7 +44,7 @@ router.route('/screening').post((req, res) => { //Route for screening functional
     posCovid = true;
   } else {
 
-    if (parseFloat(req.body.temp) > 100) {
+    if (parseFloat(req.body.temp) >= 100.0) {
       counter += 1;
     }
 
