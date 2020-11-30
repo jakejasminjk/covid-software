@@ -96,7 +96,7 @@ class App extends React.Component {
     <React.Fragment>
       <Navbar />
       <Route exact path="/" render={props =>(
-         <ShowCase />
+         <ShowCase handleSignIn = {this.handleSignIn}/>
         )}/>
       <Route exact path="/info" render={props =>(
          <Main datas={this.state.data}/>

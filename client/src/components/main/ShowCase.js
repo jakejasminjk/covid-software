@@ -57,8 +57,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ShowCase() {
+let stateName = '';
+let statePassword = '';
+
+export default function ShowCase(props) {
   const classes = useStyles();
+  function onSubmit(e){
+    e.preventDefault();
+    // Check if not empty on submission
+    //could hash the password here
+    if(stateName != '' || statePassword != '' ){
+        props.handleSignIn(stateName, statePassword);
+    }
+  }
+
+  function onChange(e){
+    stateName = e.target.value
+    console.log(stateName)
+  }
+
+  function onPchange(e){
+    //hash Password
+    statePassword = e.target.value
+    console.log(statePassword)
+  }
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -72,16 +94,18 @@ export default function ShowCase() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit={onSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="username"
+              label="UserName"
+              name="username"
+              type="text"
+              onChange={onChange}
+              autoComplete="username"
               autoFocus
             />
             <TextField
@@ -89,10 +113,11 @@ export default function ShowCase() {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
               id="password"
+              label="Password"
+              name="password"
+              type="text"
+              onChange={onPchange}
               autoComplete="current-password"
             />
             <Button
@@ -106,8 +131,8 @@ export default function ShowCase() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/Sign" variant="body2">
-                  {"Already have an account? Sign In"}
+                <Link href="/Login" variant="body2">
+                  {"Already have an account? Login"}
                 </Link>
               </Grid>
             </Grid>

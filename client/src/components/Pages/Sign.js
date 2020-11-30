@@ -16,7 +16,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="#">
-        Hackathon
+        Covid Watch
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -115,18 +115,6 @@ export default function SignIn(props) {
           >
             Submit
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot Username?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                Forgot Password?
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
 
