@@ -17,7 +17,7 @@ const userSchema = new Schema({
     trim: true,
     minlength: 5
   },
-  screening: [
+  screening: 
     {
       testedPos: {
         type: Array,
@@ -39,8 +39,7 @@ const userSchema = new Schema({
         type: Array,
         required: true
       }
-    }
-  ]
+    } 
 }, {
   timestamps: true,
 });
