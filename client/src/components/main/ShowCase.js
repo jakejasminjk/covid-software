@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
 
 let stateName = '';
 let statePassword = '';
+let redir = false;
 
 export default function ShowCase(props) {
   const classes = useStyles();
@@ -73,13 +74,14 @@ export default function ShowCase(props) {
 
   function onChange(e){
     stateName = e.target.value
-    console.log(stateName)
-  }
+    //console.log(stateName)
+}
+
 
   function onPchange(e){
     //hash Password
     statePassword = e.target.value
-    console.log(statePassword)
+    //console.log(statePassword)
   }
 
   return (
@@ -92,7 +94,7 @@ export default function ShowCase(props) {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign Up
           </Typography>
           <form className={classes.form} noValidate onSubmit={onSubmit}>
             <TextField

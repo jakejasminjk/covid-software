@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import HomeIcon from '@material-ui/icons/Home';
-
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +24,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar() {
+let displayName = ''
+
+
+export default function Navbar(props) {
+  props.name == '' ? displayName = 'Not Logged in': displayName = props.name
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -35,6 +39,12 @@ export default function Navbar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogClose = () => {
+    setAnchorEl(null);
+    props.handleLogout();
+  };
+
 
   return (
     <div className={classes.root}>
@@ -59,7 +69,7 @@ export default function Navbar() {
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/searchState'>Search State</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/Sign'>Sign Up</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/Login'>Login</Button></MenuItem>
-                <MenuItem onClick={handleClose}><Button color="inherit" href = '/#'>Logout</Button></MenuItem>
+                <MenuItem onClick={handleLogClose}><Button color="inherit" href = '/'>Logout</Button></MenuItem>
             </Menu>
         </div>
           </IconButton>
@@ -67,7 +77,13 @@ export default function Navbar() {
             Covid Data
           </Typography>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" href= "/">
-          <HomeIcon />
+            <Typography variant="subtitle1" className={classes.title}>
+                {displayName}
+            </Typography>
+            <AccountBoxIcon />
+          </IconButton>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" href= "/">
+            <HomeIcon />
           </IconButton>
         </Toolbar>
       </AppBar>

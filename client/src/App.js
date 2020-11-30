@@ -11,7 +11,6 @@ import axios from 'axios'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -58,6 +57,10 @@ class App extends React.Component {
   this.setState({name:username})
 };
 
+handleLogout(){
+ this.setState({name:''})
+};
+
 
   componentDidMount() {
       //INFO
@@ -94,9 +97,9 @@ class App extends React.Component {
     return (
     <Router>
     <React.Fragment>
-      <Navbar />
+      <Navbar handleLogout={this.handleLogout} name={this.state.name}/>
       <Route exact path="/" render={props =>(
-         <ShowCase handleSignIn = {this.handleSignIn}/>
+         <ShowCase handleSignIn={this.handleSignIn}/>
         )}/>
       <Route exact path="/info" render={props =>(
          <Main datas={this.state.data}/>
