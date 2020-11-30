@@ -60,14 +60,19 @@ router.route('/screening').post((req, res) => { //Route for screening functional
       posCovid = true;
     }
   }
-  User.update(
-    {"username" : req.body.username}, 
-    {
-      $set : {
-        screening: {"testedPos[testedPos.length]" : req.body.testedPos, "temp[temp.length]": req.body.temp, 
-        "hadContact[hadContact.length]": req.body.hadContact, "hasSymptoms[hasSymptoms.length]": req.body.hasSymptoms, "possibleCovid[possibleCovid.length]": posCovid}
+  if(req.body.username == ''){
+    console.log("User not found");
+  } else {
+    User.update(
+      {"username" : req.body.username}, 
+      {
+        $set : {
+          screening: {"testedPos[testedPos.length]" : req.body.testedPos, "temp[temp.length]": req.body.temp, 
+          "hadContact[hadContact.length]": req.body.hadContact, "hasSymptoms[hasSymptoms.length]": req.body.hasSymptoms, "possibleCovid[possibleCovid.length]": posCovid}
+        }
       }
-    })
+    )
+  }
 });
 
 router.route('/:id').get((req, res) => {
