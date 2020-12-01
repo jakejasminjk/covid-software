@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import AddLocationRoundedIcon from '@material-ui/icons/AddLocationRounded';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -16,7 +17,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="#">
-        Hackathon
+        Covid Watch
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -49,6 +50,8 @@ const useStyles = makeStyles((theme) => ({
 let stateName = '';
 let statePassword = '';
 export default function Login(props) {
+  const [error, setError] = React.useState(false);
+  const [helperText, setHelperText] = React.useState('Enter Username and Password');
   const classes = useStyles();
   function onSubmit(e){
     e.preventDefault();
@@ -56,6 +59,11 @@ export default function Login(props) {
     //could hash the password here
     if(stateName != '' || statePassword != '' ){
         props.handleLogin(stateName, statePassword);
+    }
+    else if(stateName == '' || statePassword == ''){
+        setHelperText('Invalid username or password')
+        setError(true)
+
     }
   }
 
@@ -80,12 +88,14 @@ export default function Login(props) {
         <Typography component="h1" variant="h5">
           Login
         </Typography>
+        <FormHelperText>{helperText}</FormHelperText>
         <form className={classes.form} noValidate onSubmit={onSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
+            error={error}
             id="username"
             label="UserName"
             name="username"
@@ -97,13 +107,14 @@ export default function Login(props) {
             margin="normal"
             required
             fullWidth
+            error={error}
             id="password"
             label="Password"
             name="password"
             type="text"
             onChange={onPchange}
           />
-
+          <FormHelperText>{helperText}</FormHelperText>
           <Button
             type="submit"
             fullWidth

@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import AddLocationRoundedIcon from '@material-ui/icons/AddLocationRounded';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -50,6 +51,8 @@ let stateName = '';
 let statePassword = '';
 
 export default function SignIn(props) {
+  const [error, setError] = React.useState(false);
+  const [helperText, setHelperText] = React.useState('Complete the form');
   const classes = useStyles();
   function onSubmit(e){
     e.preventDefault();
@@ -57,6 +60,11 @@ export default function SignIn(props) {
     //could hash the password here
     if(stateName != '' || statePassword != '' ){
         props.handleSignIn(stateName, statePassword);
+    }
+    else if(stateName == '' || statePassword == ''){
+        setHelperText('Please enter in a valid username and password')
+        setError(true)
+
     }
   }
 
@@ -82,12 +90,14 @@ export default function SignIn(props) {
         <Typography component="h1" variant="h5">
           SignUp
         </Typography>
+        <FormHelperText>{helperText}</FormHelperText>
         <form className={classes.form} noValidate onSubmit={onSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
+            error={error}
             id="username"
             label="UserName"
             name="username"
@@ -99,13 +109,14 @@ export default function SignIn(props) {
             margin="normal"
             required
             fullWidth
+            error={error}
             id="password"
             label="Password"
             name="password"
             type="text"
             onChange={onPchange}
           />
-
+          <FormHelperText>{helperText}</FormHelperText>
           <Button
             type="submit"
             fullWidth

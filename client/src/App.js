@@ -57,8 +57,8 @@ class App extends React.Component {
        password:password
    }).then((response) => {
    console.log(response);
- })
    this.setState({name:username})
+ })
  };
 
  handleLogin(username, password){
@@ -67,8 +67,9 @@ class App extends React.Component {
       password:password
   }).then((response) => {
   console.log(response);
-})
   this.setState({name:username})
+})
+
 };
 
 handleLogout(){
@@ -101,6 +102,7 @@ handleLogout(){
       }
   })
  .then(res => this.setState({ search: res.data}))
+
  }
 
 
@@ -111,7 +113,7 @@ handleLogout(){
     return (
     <Router>
     <React.Fragment>
-      <Navbar handleLogout={this.handleLogout} name={this.state.name}/>
+      <Navbar handleLogout={this.handleLogout} Username={this.state.name}/>
       <Route exact path="/" render={props =>(
          <ShowCase handleSignIn={this.handleSignIn}/>
         )}/>

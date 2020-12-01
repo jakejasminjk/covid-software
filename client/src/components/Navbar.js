@@ -28,7 +28,7 @@ let displayName = ''
 
 
 export default function Navbar(props) {
-  props.name == '' ? displayName = 'Not Logged in': displayName = props.name
+  //props.name == '' ? displayName = 'Not Logged in': displayName = props.name
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -70,16 +70,16 @@ export default function Navbar(props) {
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/screen'>Screen</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/Sign'>Sign Up</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/Login'>Login</Button></MenuItem>
-                <MenuItem onClick={handleLogClose}><Button color="inherit" href = '/'>Logout</Button></MenuItem>
+                <MenuItem onClick={handleLogClose}><Button color="inherit" href = '/info'>Logout</Button></MenuItem>
             </Menu>
         </div>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             Covid Data
           </Typography>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" href= "/">
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" href= "/Login">
             <Typography variant="subtitle1" className={classes.title}>
-                {displayName}
+                {props.Username}
             </Typography>
             <AccountBoxIcon />
           </IconButton>

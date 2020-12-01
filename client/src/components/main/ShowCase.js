@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
@@ -62,6 +63,8 @@ let statePassword = '';
 let redir = false;
 
 export default function ShowCase(props) {
+  const [error, setError] = React.useState(false);
+  const [helperText, setHelperText] = React.useState('Complete the form');
   const classes = useStyles();
   function onSubmit(e){
     e.preventDefault();
@@ -69,6 +72,11 @@ export default function ShowCase(props) {
     //could hash the password here
     if(stateName != '' || statePassword != '' ){
         props.handleSignIn(stateName, statePassword);
+    }
+    else if(stateName == '' || statePassword == ''){
+        setHelperText('Please enter in a valid username and password')
+        setError(true)
+
     }
   }
 
@@ -96,12 +104,14 @@ export default function ShowCase(props) {
           <Typography component="h1" variant="h5">
             Sign Up
           </Typography>
+          <FormHelperText>{helperText}</FormHelperText>
           <form className={classes.form} noValidate onSubmit={onSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
+              error={error}
               id="username"
               label="UserName"
               name="username"
@@ -115,6 +125,7 @@ export default function ShowCase(props) {
               margin="normal"
               required
               fullWidth
+              error={error}
               id="password"
               label="Password"
               name="password"
@@ -122,6 +133,7 @@ export default function ShowCase(props) {
               onChange={onPchange}
               autoComplete="current-password"
             />
+            <FormHelperText>{helperText}</FormHelperText>
             <Button
               type="submit"
               fullWidth
