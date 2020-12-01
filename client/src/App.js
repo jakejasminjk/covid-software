@@ -7,6 +7,8 @@ import Login from './components/Pages/Login';
 import Sign from './components/Pages/Sign';
 import Navbar from './components/Navbar';
 import ShowCase from './components/main/ShowCase'
+import Screen from './components/main/Screen'
+
 import axios from 'axios'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -24,6 +26,18 @@ class App extends React.Component {
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
+    this.handleScreen = this.handleScreen.bind(this)
+  }
+
+  handleScreen(name, testPos, temp, contact, symptoms){
+      axios.post('http://localhost:5000/screening',{
+          testedPos:testPos,
+          temp:temp,
+          hadContact:contact,
+          hasSymptoms:symptoms
+      }).then((response) => {
+      console.log(response);
+    })
   }
 
   handleSearch(searchP){
@@ -100,6 +114,9 @@ handleLogout(){
       <Navbar handleLogout={this.handleLogout} name={this.state.name}/>
       <Route exact path="/" render={props =>(
          <ShowCase handleSignIn={this.handleSignIn}/>
+        )}/>
+     <Route exact path="/screen" render={props =>(
+          <Screen name={this.state.name} handleScreen={this.handleScreen}/>
         )}/>
       <Route exact path="/info" render={props =>(
          <Main datas={this.state.data}/>

@@ -1,0 +1,11 @@
+1. Have you tested positive for COVID-19 in the last 30 days? (Yes/No radio buttons)
+
+2. What is your current temperature? (Text box)
+
+3. Have you been in contact with someone who has recently been
+diagnosed with COVID-19, or has experienced multiple symptoms such as coughing,
+fever, shortness of breath, or loss of taste and/or smell? (Yes/No radio buttons)
+
+4. Have you experienced any symptoms of COVID-19, such as coughing, fever, shortness
+ of breath, or loss of taste and/or smell?  Please select "No" if these symptoms stem
+ from a preexisting condition. (Yes/No radio buttons)
