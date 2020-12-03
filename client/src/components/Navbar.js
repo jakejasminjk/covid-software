@@ -65,9 +65,11 @@ export default function Navbar(props) {
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/'>Home</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/info'>Info</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/dailyState'>DailyState</Button></MenuItem>
+
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/#'>Metadata</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/searchState'>Search State</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/screen'>Screen</Button></MenuItem>
+                <MenuItem onClick={handleClose}><Button color="inherit" href = '/Metadata'>Metadata</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/Sign'>Sign Up</Button></MenuItem>
                 <MenuItem onClick={handleClose}><Button color="inherit" href = '/Login'>Login</Button></MenuItem>
                 <MenuItem onClick={handleLogClose}><Button color="inherit" href = '/info'>Logout</Button></MenuItem>
