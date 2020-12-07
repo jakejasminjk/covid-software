@@ -24,7 +24,7 @@ export default function Metadata(props) {
   //console.log(`stuff is : ${JSON.stringify(props.stuff)}`)
   {/*<Paper className={classes.paper}>{props.covid.date}</Paper>*/}
   return(
-    <Grid item xs={3}>
+    <Grid item xs={4}>
         <Metadatacard
         state={props.covid.state}
         notes={props.covid.notes}
