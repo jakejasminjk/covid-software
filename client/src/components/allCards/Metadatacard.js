@@ -5,6 +5,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Icon from '@material-ui/core/Icon';
+import Link from '@material-ui/core/Link';
+
 
 const useStyles = makeStyles({
   root: {
@@ -34,16 +37,22 @@ export default function OutlinedCard(props) {
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className={classes.title} color="initial" gutterBottom>
             State: {props.state}
          </Typography>
-         <Typography className={classes.title} color="textSecondary" gutterBottom>
-           twitter: {props.twitter}
+         <Typography className={classes.root} color="initial" gutterBottom>
+           Twitter:
+           <Link href= {props.twitter}>
+           {props.twitter}
+           </Link>
          </Typography>
-         <Typography className={classes.title} color="textSecondary" gutterBottom>
-           covid19Site: {props.covid19Site}
+         <Typography className={classes.root} color="initial" gutterBottom>
+           Covid19Site:
+           <Link href= {props.covid19Site}>
+           {props.covid19Site}
+           </Link>
          </Typography>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className={classes.title} color="initial" gutterBottom>
           Notes: {props.notes}
         </Typography>
 
