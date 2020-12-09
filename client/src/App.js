@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import Main from './components/Pages/Main';
 import DailyState from './components/Pages/DailyState';
 import State_Search from './components/Pages/State_Search';
+import Metadata from './components/Pages/Metadata';
 import Login from './components/Pages/Login';
 import Sign from './components/Pages/Sign';
 import Navbar from './components/Navbar';
@@ -20,8 +21,12 @@ class App extends React.Component {
       data: [],
       name: '',
       dailyState: [],
+
       stateSearch:'',
       search: [],
+
+      Metadata: [],
+
     };
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
@@ -95,6 +100,7 @@ handleLogout(){
   .then(res => this.setState({ dailyState: res.data}))
 
 
+
     //SEARCH BY STATE
   axios.get(`https://cors-anywhere.herokuapp.com/https://api.covidtracking.com/v1/states/${this.state.stateSearch}/daily.json`, {
       params: {
@@ -102,6 +108,14 @@ handleLogout(){
       }
   })
  .then(res => this.setState({ search: res.data}))
+
+
+  axios.get('https://cors-anywhere.herokuapp.com/https://api.covidtracking.com/v1/states/info.json', {
+    params: {
+      _limit: 20
+    }
+  })
+  .then(res => this.setState({Metadata: res.data}))
 
  }
 
@@ -138,6 +152,9 @@ handleLogout(){
          )}/>
     <Route exact path="/Sign" render={props =>(
         <Sign handleSignIn = {this.handleSignIn}/>
+        )}/>
+    <Route exact path="/Metadata" render={props =>(
+        <Metadata datas={this.state.Metadata}/>
         )}/>
     </React.Fragment>
     </Router>
