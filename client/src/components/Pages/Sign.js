@@ -60,6 +60,8 @@ export default function SignIn(props) {
     //could hash the password here
     if(stateName != '' || statePassword != '' ){
         props.handleSignIn(stateName, statePassword);
+        stateName = '';
+        statePassword = '';
     }
     else if(stateName == '' || statePassword == ''){
         setHelperText('Please enter in a valid username and password')

@@ -65,6 +65,7 @@ class App extends React.Component {
    }).then((response) => {
    console.log(response);
    this.setState({name:username})
+   window.location.replace("http://localhost:3000/info")
  })
  };
 
