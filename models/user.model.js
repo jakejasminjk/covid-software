@@ -14,33 +14,27 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    trim: true,
     minlength: 5
   },
-  screening: 
+  screening: [
     {
       testedPos: {
-        type: Array,
-        required: true
+        type: Boolean,
       },
       temp: {
-        type: Array,
-        required: true
+        type: String,
       },
       hadContact: {
-        type: Array,
-        required: true
+        type: Boolean,
       },
       hasSymptoms : {
-        type: Array,
-        required: true
+        type: Boolean,
       },
       possibleCovid: {
-        type: Array,
-        required: true
+        type: Boolean,
       }
     } 
-}, {
+  ]}, {
   timestamps: true,
 });
 

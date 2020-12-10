@@ -42,7 +42,7 @@ export default function RadioButtonsGroup(props) {
     const [error, setError] = React.useState(false);
     const [helperText, setHelperText] = React.useState('Complete the form');
     const classes = useStyles();
-    name = props.name;
+    //name = props.name;
 
     function onSubmit(e){
         e.preventDefault();
@@ -51,13 +51,28 @@ export default function RadioButtonsGroup(props) {
         if(t == ''){
             setHelperText('Must enter Temperature')
             setError(true)
+        } else if(p == '') {
+          setHelperText('Must check if tested positive.')
+          setError(true)
+        } else if(c == '') {
+          setHelperText('Must check if you have had contact.')
+          setError(true)
+        } else if(s == '') {
+          setHelperText('Must check if you have had symptoms.')
+          setError(true)
         }
-        else if(name == ''){
-            setHelperText('Please log in to submit')
-            setError(true)
-        }
+        //else if(name == ''){
+        //    setHelperText('Please log in to submit')
+        //    setError(true)
+        //}
         else{
-            props.handleScreen(name,p,t,c,s);
+          //console.log(name);
+          console.log(p);
+          console.log(t);
+          console.log(c);
+          console.log(s);
+            props.handleScreen(p,t,c,s);
+            //Readd name if does not work
         }
     }
 
@@ -82,7 +97,7 @@ export default function RadioButtonsGroup(props) {
     <FormHelperText>{helperText}</FormHelperText>
     <FormControl component="fieldset" error = {error}>
       <FormLabel component="legend">Have you tested positive for COVID-19 in the last 30 days?</FormLabel>
-      <RadioGroup aria-label="Tested" name="Tested" value="no" onChange={handleP}>
+      <RadioGroup aria-label="Tested" name="Tested" onChange={handleP}>
         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
         <FormControlLabel value="no" control={<Radio />} label="No" />
       </RadioGroup>
@@ -103,7 +118,7 @@ export default function RadioButtonsGroup(props) {
       <FormLabel component="legend">Have you been in contact with someone who has recently been
       diagnosed with COVID-19, or has experienced multiple symptoms such as coughing,
       fever, shortness of breath, or loss of taste and/or smell?</FormLabel>
-      <RadioGroup aria-label="Contact" name="Contact" value="no" onChange={handleC}>
+      <RadioGroup aria-label="Contact" name="Contact" onChange={handleC}>
         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
         <FormControlLabel value="no" control={<Radio />} label="No" />
       </RadioGroup>
@@ -112,7 +127,7 @@ export default function RadioButtonsGroup(props) {
       <FormLabel component="legend">Have you experienced any symptoms of COVID-19, such as coughing, fever, shortness
        of breath, or loss of taste and/or smell?  Please select "No" if these symptoms stem
        from a preexisting condition.</FormLabel>
-      <RadioGroup aria-label="Symptoms" name="Symptoms" value="no" onChange={handleS}>
+      <RadioGroup aria-label="Symptoms" name="Symptoms" onChange={handleS}>
         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
         <FormControlLabel value="no" control={<Radio />} label="No" />
       </RadioGroup>

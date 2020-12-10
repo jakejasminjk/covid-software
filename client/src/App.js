@@ -34,8 +34,10 @@ class App extends React.Component {
     this.handleScreen = this.handleScreen.bind(this)
   }
 
-  handleScreen(name, testPos, temp, contact, symptoms){
-      axios.post('http://localhost:5000/screening',{
+  //Readd name if doesnt work
+  handleScreen(testPos, temp, contact, symptoms){
+      axios.post('http://localhost:5000/users/screening',{
+          //username:name,
           testedPos:testPos,
           temp:temp,
           hadContact:contact,
